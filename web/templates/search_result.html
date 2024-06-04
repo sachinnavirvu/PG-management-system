@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <link rel="stylesheet" href="style.css">   <!--Link with css file-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   <!-- Font Awesome Icon Library -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+<!--Header////////////////////////////////////////////////////////////////////-->    
+<div class="header">
+    <section class="hero">
+        <h1>Welcome to Our PG Accommodation</h1>
+        <p>Comfortable and Affordable Stay</p>
+      </section>
+  </div>
+<!--Nav Bar*****************************************************************************-->      
+<div class="topnav">
+  <a href="{{ url_for('index') }}"><i class="fa fa-home"> Home</i></a>
+  <a href="{{ url_for('about') }}">About</a>
+</div>
+<!--Nav Bar*****************************************************************************-->   
+<!-------------------------------------------------------------->
+<div class="result-container">
+    <h1 class="result-header">Search Result</h1>
+    <div class="result-card">
+        <div class="result-card-body">
+            {% if tenant %}
+                <p class="result-card-text">Name: {{ tenant.name }}</p>
+                <p class="result-card-text">ID: {{ tenant.id }}</p>
+                <p class="result-card-text">Age: {{ tenant.age }}</p>
+                <p class="result-card-text">Email: {{ tenant.email }}</p>
+                <p class="result-card-text">Address: {{ tenant.address }}</p>
+                <p class="result-card-text">Phone Number: {{ tenant.phone_number }}</p>
+            {% else %}
+                <p class="result-card-text">Tenant not found.</p>
+            {% endif %}
+        </div>
+    </div>
+    <a href="{{ url_for('index') }}" class="custom-btn-secondary mt-4">Back to Home</a>
+
+</div>
+<!-------------------------------------------------------------->
+
+<!--////////////////////////////////////////////////////////////////////-->  
+<footer>
+        
+    <h4>Footer</h4>
+    <p>&copy; 2023 PG Accommodation. All rights reserved.</p>
+    <h6>Contact in</h6>
+    <div class=>
+      <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      <i class="fa fa-instagram w3-hover-opacity"></i>
+      <i class="fa fa-snapchat w3-hover-opacity"></i>
+      <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      <i class="fa fa-twitter w3-hover-opacity"></i>
+      <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </div>
+    
+  
+</footer>
+<!--////////////////////////////////////////////////////////////////////-->
+</body>
+</html>
